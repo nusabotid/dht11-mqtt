@@ -42,6 +42,9 @@ void readSensor()
     Serial.print(" %\t");
     Serial.print("Temperature: ");
     Serial.println(temp);
+
+    client.publish("nusabot/temp", String(temp), true, 1);
+    client.publish("nusabot/humid", String(humid), true, 1);
 }
 
 void setup()
